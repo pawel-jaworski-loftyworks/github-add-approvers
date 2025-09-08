@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GitHub PR Authorizers – Options</title>
+    <style>
+      body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; margin: 24px; }
+      .card { max-width: 720px; border: 1px solid #d0d7de; border-radius: 12px; padding: 16px; }
+      label { display:block; font-weight:600; margin-top: 12px; }
+      input[type="password"], input[type="text"] { width: 100%; padding: 10px; border:1px solid #d0d7de; border-radius: 8px; }
+      .row { display:flex; gap:12px; align-items:center; margin-top:12px; }
+      button { padding: 10px 14px; border-radius: 8px; border:1px solid rgba(140,140,140,.4); background:#2da44e; color:white; font-weight:600; cursor:pointer; }
+      .muted { color:#57606a; font-size: 12px; }
+      .success { color:#1a7f37; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>GitHub PR Authorizers</h2>
+      <p class="muted">Store a GitHub Personal Access Token (fine-grained or classic) to let the extension request reviewers on your behalf.</p>
+      <label for="token">GitHub Personal Access Token</label>
+      <input id="token" type="password" placeholder="ghp_...">
+      <div class="muted">Minimum scopes: <code>repo</code> (classic) or fine-grained with permission to <em>Pull requests: Read &amp; Write</em> for the target repos.</div>
+
+      <label for="apibase">GitHub API Base (optional)</label>
+      <input id="apibase" type="text" placeholder="https://api.github.com">
+      <div class="muted">Leave default for github.com. For GitHub Enterprise Server, enter e.g. <code>https://ghe.example.com/api/v3</code>.</div>
+
+      <div class="row">
+        <button id="save">Save</button>
+        <span id="status" class="muted"></span>
+      </div>
+    </div>
+
+    <!-- External JS file -->
+    <script src="options.js"></script>
+  </body>
+</html>

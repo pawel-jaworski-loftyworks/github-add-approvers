@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub PR Authorizers (Add Reviewers)",
+  "version": "1.0.0",
+  "description": "Quickly add people (and teams) as reviewers to GitHub pull requests from the page UI.",
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://api.github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*/*/pull/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
