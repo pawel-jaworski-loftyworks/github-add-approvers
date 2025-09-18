@@ -118,7 +118,10 @@
       cursor: "pointer",
       flex: "0 0 auto"
     });
-    closeBtn.addEventListener("click", () => host.remove());
+    closeBtn.addEventListener("click", () => {
+       chrome.storage.sync.set({ defaultReviewers: input.value.trim() });
+       host.remove();
+    });
 
     row.appendChild(addBtn);
     row.appendChild(closeBtn);
